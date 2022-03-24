@@ -1,8 +1,7 @@
-@extends('layout.main')
-@include('includes.header')
+@extends('layouts.main')
 
 @section('content')
-<form action="{{route('products.update', $product->id)}}" method="POST">
+<form class="container" action="{{route('products.update', $product->id)}}" method="POST">
 	@csrf
 	@method('PUT')
 	<div class="row">
