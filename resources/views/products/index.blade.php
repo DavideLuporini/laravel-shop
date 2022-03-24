@@ -11,6 +11,7 @@
         <p>{{ $product->description }}</p>
         <div>{{ $product->price }}</div>
         <a href="{{ route('products.show', ['product' => $product->id]) }}">Dettagli</a>
+        @include('includes.delete')
     </li>
     @endforeach
 </ul>
