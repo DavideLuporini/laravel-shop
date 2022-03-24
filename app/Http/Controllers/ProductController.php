@@ -43,7 +43,7 @@ class ProductController extends Controller
         $product->fill($data);
         $product->save();
 
-        return redirect()->route('product.show', compact('product'));
+        return redirect()->route('products.show', compact('product'));
     }
 
     /**
