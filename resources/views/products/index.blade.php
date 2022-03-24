@@ -12,6 +12,7 @@
         <div>{{ $product->price }}</div>
         <a href="{{ route('products.show', ['product' => $product->id]) }}">Dettagli</a>
         <a class="d-block" href="{{ route('products.edit', ['product' => $product->id]) }}">Modifica</a>
+        @include('includes.delete')
     </li>
     @endforeach
 </ul>
