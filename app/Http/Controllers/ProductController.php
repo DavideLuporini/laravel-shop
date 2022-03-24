@@ -25,8 +25,8 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        //
+    {  //////////////////
+        return view('products.create');
     }
 
     /**
@@ -37,7 +37,13 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        ////////////////////////
+        $data = $request->all();
+        $product = new Product();
+        $product->fill($data);
+        $product->save();
+
+        return redirect()->route('product.show', compact('product'));
     }
 
     /**
