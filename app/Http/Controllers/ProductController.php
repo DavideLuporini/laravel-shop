@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Brand;
 use App\Models\Product;
+use App\Models\Color;
 
 class ProductController extends Controller
 {
@@ -16,7 +18,10 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products.index', compact('products'));
+        $brands = Brand::all();
+        $colors = Color::all();
+
+        return view('products.index', compact('products', 'brands', 'colors'));
     }
 
     /**
@@ -26,7 +31,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $brands = Brand::all();
+        $colors = Color::all();
+        return view('products.create', compact('brands', 'colors'));
     }
 
     /**
@@ -63,9 +70,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Product $product, Brand $brands, Color $colors)
     {
-        return view('products.edit', compact('product'));
+        $brands = Brand::all();
+        $colors = Color::all();
+        return view('products.edit', compact('product', 'brands', 'colors'));
     }
 
     /**
